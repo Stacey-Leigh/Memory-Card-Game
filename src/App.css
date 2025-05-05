@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #f5f5f5;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app.pokemon {
+  background: linear-gradient(135deg, #ffdee9 0%, #b5fffc 100%);
+}
+
+.app.flags {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.app.emoji {
+  background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Selector */
+.theme-selector {
+  margin-bottom: 20px;
+}
+
+.theme-selector button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 20px;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.theme-selector button.active {
+  background: #4caf50;
+  color: white;
+}
+
+.theme-selector button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Game Info */
+.game-info {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.win-message {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 20px;
+  text-align: center;
+  max-width: 80%;
+  width: fit-content;
+}
+
+.moves {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.win-message button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+  aspect-ratio: 1/1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card-front {
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+  font-size: 2rem;
+}
+
+.card-back img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.card:hover .card-front {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .card-back {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
