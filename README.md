@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+See the live app here: https://dashing-pasca-0a2c24.netlify.app/
 
 ## Available Scripts
 
